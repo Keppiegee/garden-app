@@ -1,26 +1,51 @@
-# Hardcoded values for the season and plant type
-# TODO: Replace these with input() to allow user interaction.
-season = input("Enter the season (e.g. summer or winter): ").strip().lower()
-plant_type = input("Enter the plant type (e.g. flower or vegetable): ").strip().lower()
+"""
+Garden Advice Program
 
-# Variable to hold gardening advice
-advice = ""
+Provides simple gardening advice based on the season
+and the type of plant entered by the user.
+"""
 
-# Determine advice based on the season
-if season == "summer":
-    advice += "Water your plants regularly and provide some shade.\n"
-elif season == "winter":
-    advice += "Protect your plants from frost with covers.\n"
-else:
-    advice += "No advice for this season.\n"
 
-# Determine advice based on the plant type
-if plant_type == "flower":
-    advice += "Use fertiliser to encourage blooms."
-elif plant_type == "vegetable":
-    advice += "Keep an eye out for pests!"
-else:
-    advice += "No advice for this type of plant."
+def get_season_advice(season: str) -> str:
+    """
+    Return gardening advice based on the season.
+    """
+    if season == "summer":
+        return "Water your plants regularly and provide some shade.\n"
+    elif season == "winter":
+        return "Protect your plants from frost with covers.\n"
+    else:
+        return "No advice for this season.\n"
 
-# Print the generated advice
-print(advice)
+
+def get_plant_advice(plant_type: str) -> str:
+    """
+    Return gardening advice based on the plant type.
+    """
+    if plant_type == "flower":
+        return "Use fertiliser to encourage blooms."
+    elif plant_type == "vegetable":
+        return "Keep an eye out for pests!"
+    else:
+        return "No advice for this type of plant."
+
+
+def main():
+    """
+    Main program execution.
+    """
+    # Get user input
+    season = input("Enter the season (e.g. summer or winter): ").strip().lower()
+    plant_type = input("Enter the plant type (e.g. flower or vegetable): ").strip().lower()
+
+    # Build advice using helper functions
+    advice = get_season_advice(season)
+    advice += get_plant_advice(plant_type)
+
+    # Display the advice
+    print(advice)
+
+
+# Run the program
+if __name__ == "__main__":
+    main()
